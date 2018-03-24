@@ -53,8 +53,8 @@ $("#add-comedian").on("click", function(event) {
 
 
 // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-$('button').on('click', function() {
-    var x = $(this).data("search");
+$('#comedianButtons').on('click', "button", function() {
+    var x = $(this).html();
     
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=" + apiKey + "&limit=10";
     console.log(queryURL);
