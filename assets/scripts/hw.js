@@ -1,30 +1,13 @@
-// Hit the GIPHY API.
-
-// Fool around with the GIPHY API. Giphy API.
-// Be sure to read about these GIPHY parameters (hint, hint):
-
-// q: string, search query term or phrase. ex: cheeseburgers
-// limit: integer(int32): The maximum number of records to return (default: "25")
-// rating: string: Filters results by specified rating.
-
 // Like many APIs, GIPHY requires developers to use a key to access their API data. To use the GIPHY API, you'll need a GIPHY account (don't worry, it's free!) and then obtain an API Key by creating an app.
 apiKey = "0W8ZtmOEBmYXOlbtuwNyvjahXusTY2ld";
 // Make sure you switch the protocol in the query URL from http to https, or the app may not work properly when deployed to Github Pages.
-// Watch the demo video
 
-
-// You should have a high-level understanding of how this assignment works before attempting to code it.
 // Instructions
 
 $(document).ready(function(){
 
-
-
-
-
 // Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called topics.
 var comedians = ["Key and Peele", "Jerry Seinfeld", "Jim Carrey", "Dave Chappelle", "Will Ferrell", "Amy Schumer", "Kevin Hart", "Sarah Silverman", "Robin Williams", "Chris Rock"];
-
 
 // Dynamically creating the buttons with jQuery
 function renderButtons() {
@@ -107,10 +90,7 @@ $('button').on('click', function() {
             // $('#GIFArea').prepend("<img src='"+response.data[i].images.downsized.url+"'>");
         }
     })
-
 })
-
-
 
 // When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
 
