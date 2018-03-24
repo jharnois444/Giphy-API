@@ -5,13 +5,21 @@
     <meta charset='UTF-8'>
     <title>GiphyAPI</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
 
 </head>
 <body>
 
-    <div id="comedianButtons">
+    <button data-search="Key and Peele">Key and Peele</button>
+    <button data-search="Jerry Seinfeld">Jerry Seinfeld</button>
 
-    </div>
+    <div id="comedianButtons"></div>
+
+    <!-- Area for GIFs to populate from API call -->
+    <div id="GIFArea"></div>
 
     <form id="comedian-form">
         <label for="comedian-input">Add a comedian!</label>
@@ -24,10 +32,7 @@
 
     </div>
 
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+
  
     <script src="assets/scripts/hw.js"></script>
 </body>
