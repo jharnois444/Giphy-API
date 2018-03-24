@@ -23,12 +23,49 @@ $(document).ready(function(){
 
 
 // Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called topics.
-var topicsArray = ["Key and Peele", "Jerry Seinfeld", "Jim Carrey", "DaveChappelle", "Will Ferrell", "Amy Schumer", "Kevin Hart", "Sarah Silverman", "Robin Williams", "Chris Rock"];
-$.each(topicsArray, function(index, value){
-    $("#result").append(index + ": " + value + '<br>');
-    });
+var comedians = ["Key and Peele", "Jerry Seinfeld", "Jim Carrey", "Dave Chappelle", "Will Ferrell", "Amy Schumer", "Kevin Hart", "Sarah Silverman", "Robin Williams", "Chris Rock"];
+
+
+// Dynamically creating the buttons with jQuery
+function renderButtons() {
+    // Deleting the movie buttons prior to adding new movie buttons
+    // (this is necessary otherwise we will have repeat buttons)
+    $("#comedianButtons").empty();
+    // Looping through the array of comedians
+    for (var i = 0; i < comedians.length; i++) {
+      // Then dynamicaly generating buttons for each movie in the array.
+      // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+      var a = $("<button>");
+      // Adding a class
+      a.addClass("comedian");
+      // Adding a data-attribute with a value of the movie at index i
+      a.attr("data-name", comedians[i]);
+      // Providing the button's text with a value of the movie at index i
+      a.text(comedians[i]);
+      // Adding the button to the HTML
+      $("#comedianButtons").append(a);
+    }
+  }
+
+//   $.each(comedians, function(index, value){
+//     $("#result").append(index + ": " + value + '<br>');
+//     });
+
+// Click Submit to add a new button
+$("#add-comedian").on("click", function(event) {
+    // event.preventDefault() prevents the form from trying to submit itself.
+    event.preventDefault();
+    // This line will grab the text from the input box
+    var comedian = $("#comedian-input").val().trim();
+    // Input from the textbox added to array
+    comedians.push(comedian);
+    // Calling renderButtons which handles the processing of our comedian array
+    renderButtons();  
+  });
+  // Calling the renderButtons function at least once to display the initial list of movies
+  renderButtons();
+
 });
-// We chose animals for our theme, but you can make a list to your own liking.
 // Your app should take the topics in this array and create buttons in your HTML.
 
 // Try using a loop that appends a button for each string in the array.
@@ -38,23 +75,38 @@ $.each(topicsArray, function(index, value){
 $('button').on('click', function() {
     var x = $(this).data("search");
     
-
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=" + apiKey + "&limit=10";
     console.log(queryURL);
 
-    //API Call
+    //AJAX API Call
     $.ajax({url:queryURL, method: 'GET'})
     .done(function(response){
-        console.log(response);
+        // console.log(response);
 
         // for loop to cycle through returned API objects
         for(var i=0; i<response.data.length; i++){
 
+            var comedianDiv = $('<div>');
+
+            //Appends rating as a <p> tag
+            var p = $('<p>').text("Rating: "+response.data[i].rating);
+
+            var comedianImage = $('<img>');
+
+            //Attributing to img tag a fixed height url
+            comedianImage.attr('src', response.data[i].images.fixed_height.url);
+
+            comedianDiv.append(p);
+
+            comedianDiv.append(comedianImage);
+
+            $('#GIFArea').prepend(comedianDiv);
             //prepend rating to page
-            $('#GIFArea').prepend("<p>Rating: "+response.data[i].rating+"</p>");
+            // $('#GIFArea').prepend("<p>Rating: "+response.data[i].rating+"</p>");
             
+
             //prepend gifs to page
-            $('#GIFArea').prepend("<img src='"+response.data[i].images.downsized.url+"'>");
+            // $('#GIFArea').prepend("<img src='"+response.data[i].images.downsized.url+"'>");
         }
     })
 
