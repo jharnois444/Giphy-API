@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-    <meta charset='UTF-8'>
     <title>GiphyAPI</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<style>html {background-color: gray;}</style>
     <button data-search="Key and Peele">Key and Peele</button>
     <button data-search="Jerry Seinfeld">Jerry Seinfeld</button>
     <button data-search="Jim Carrey">Jim Carrey</button>
@@ -24,10 +21,14 @@
     <button data-search="Chris Rock">Chris Rock</button>
 
     <!-- Generated buttons will go here -->
+    <div class='container'></div>
+
     <div id="comedianButtons"></div>
 
     <!-- Area for GIFs to populate from API call -->
-    <div id="GIFArea"></div>
+    <div id="GIFArea">
+
+    </div>
 
     <form id="comedian-form">
         <label for="comedian-input">Add a comedian!</label>

@@ -28,19 +28,17 @@ var comedians = ["Key and Peele", "Jerry Seinfeld", "Jim Carrey", "Dave Chappell
 
 // Dynamically creating the buttons with jQuery
 function renderButtons() {
-    // Deleting the movie buttons prior to adding new movie buttons
-    // (this is necessary otherwise we will have repeat buttons)
     $("#comedianButtons").empty();
     // Looping through the array of comedians
     for (var i = 0; i < comedians.length; i++) {
-      // Then dynamicaly generating buttons for each movie in the array.
+      // Then dynamicaly generating buttons for each comedian in the array.
       // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
       var a = $("<button>");
       // Adding a class
       a.addClass("comedian");
-      // Adding a data-attribute with a value of the movie at index i
+      // Adding a data-attribute with a value at index i
       a.attr("data-name", comedians[i]);
-      // Providing the button's text with a value of the movie at index i
+      // Providing the button's text with a value at index i
       a.text(comedians[i]);
       // Adding the button to the HTML
       $("#comedianButtons").append(a);
@@ -96,9 +94,9 @@ $('button').on('click', function() {
             //Attributing to img tag a fixed height url
             comedianImage.attr('src', response.data[i].images.fixed_height.url);
 
-            comedianDiv.append(p);
+            comedianDiv.prepend(p);
 
-            comedianDiv.append(comedianImage);
+            comedianDiv.prepend(comedianImage);
 
             $('#GIFArea').prepend(comedianDiv);
             //prepend rating to page
