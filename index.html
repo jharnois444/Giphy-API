@@ -12,27 +12,28 @@
 <body>
 
     <!-- Generated buttons will go here -->
-    <div class='container'></div>
+    <div class='container'>
+        <div id="comedianButtons"></div>
+    
 
-    <div id="comedianButtons"></div>
+        <!-- Area for GIFs to populate from API call -->
 
-    <!-- Area for GIFs to populate from API call -->
-    <div id="GIFArea">
+        <div id="GIFArea">
+
+        </div>
+
+        <form id="comedian-form">
+            <label for="comedian-input">Add a comedian!</label>
+            <input type="text" id="comedian-input"><br>
+
+            <input id="add-comedian" type="submit" value="Submit">
+        </form>
+
+        <div id="comedians">
+
+        </div>
 
     </div>
-
-    <form id="comedian-form">
-        <label for="comedian-input">Add a comedian!</label>
-        <input type="text" id="comedian-input"><br>
-
-        <input id="add-comedian" type="submit" value="Submit">
-    </form>
-
-    <div id="comedians">
-
-    </div>
-
-
  
     <script src="assets/scripts/hw.js"></script>
 </body>

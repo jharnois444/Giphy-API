@@ -15,3 +15,18 @@ form {
     float: left;
 }
 
+.container {
+    text-align: center;
+}
+
+#comedianButtons {
+    margin: 20px;
+}
+
+button {
+    margin: 2px;
+}
+
+#add-comedian {
+    margin: 2px;
+}
