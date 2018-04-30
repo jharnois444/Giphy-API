@@ -96,6 +96,9 @@ $('#comedianButtons').on('click', "button", function() {
     })
 })
 
+
+
+
 // When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
 
 // Under every gif, display its rating (PG, G, so on).
